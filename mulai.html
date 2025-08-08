@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tier List Meme Jomok</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      background-color: #111;
+      color: #eee;
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #66ccff;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      user-select: none;
+    }
+
+    .tier-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .tier {
+      background: #222;
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 0 10px #3399ff44;
+    }
+
+    .tier h2 {
+      margin: 0 0 1rem 0;
+      color: #3399ff;
+      font-weight: 700;
+      user-select: none;
+    }
+
+    .memes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+    }
+
+    .meme {
+      background: #333;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px #0008;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #ccc;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .meme:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px #3399ffcc;
+    }
+
+    .meme img,
+    .meme video {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-bottom: 1px solid #444;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      background: #222;
+      user-select: none;
+    }
+
+    .meme span {
+      padding: 0.4rem 0.6rem;
+      text-align: center;
+    }
+
+    /* Back button */
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 2rem;
+      background: #66ccff;
+      color: #000;
+      font-weight: 700;
+      padding: 0.8rem 1.6rem;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 6px 15px #3399ff88;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+
+    .back-btn:hover {
+      background-color: #3399ff;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .memes {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      }
+      .meme img,
+      .meme video {
+        height: 90px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back-btn" aria-label="Kembali ke halaman utama">← Kembali</a>
+
+  <h1>Tier List Meme Jomok</h1>
+
+  <div class="tier-list">
+
+    <!-- S Tier -->
+    <section class="tier" aria-label="S Tier">
+      <h2>S Tier</h2>
+      <div class="memes">
+        <div class="meme" tabindex="0">
+          <img src="img/S1.jpg" alt="Meme Jomok S1" loading="lazy" />
+          <span>S1</span>
+        </div>
+        <div class="meme" tabindex="0">
+          <img src="img/S2.jpg" alt="Meme Jomok S2" loading="lazy" />
+          <span>S2</span>
+        </div>
+        <div class="meme" tabindex="0">
+          <video src="video/S3.mp4" controls preload="metadata" aria-label="Video Meme Jomok S3"></video>
+          <span>S3 (Video)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- A Tier -->
+    <section class="tier" aria-label="A Tier">
+      <h2>A Tier</h2>
+      <div class="memes">
+        <div class="meme" tabindex="0">
+          <img src="img/A1.jpg" alt="Meme Jomok A1" loading="lazy" />
+          <span>A1</span>
+        </div>
+        <div class="meme" tabindex="0">
+          <img src="img/A2.jpg" alt="Meme Jomok A2" loading="lazy" />
+          <span>A2</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- B Tier -->
+    <section class="tier" aria-label="B Tier">
+      <h2>B Tier</h2>
+      <div class="memes">
+        <div class="meme" tabindex="0">
+          <img src="img/B1.jpg" alt="Meme Jomok B1" loading="lazy" />
+          <span>B1</span>
+        </div>
+        <div class="meme" tabindex="0">
+          <img src="img/B2.jpg" alt="Meme Jomok B2" loading="lazy" />
+          <span>B2</span>
+        </div>
+        <div class="meme" tabindex="0">
+          <img src="img/B3.jpg" alt="Meme Jomok B3" loading="lazy" />
+          <span>B3</span>
+        </div>
+        <div class="meme" tabindex="0">
+          <img src="img/B4.jpg" alt="Meme Jomok B4" loading="lazy" />
+          <span>B4</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- C Tier -->
+    <section class="tier" aria-label="C Tier">
+      <h2>C Tier</h2>
+      <div class="memes">
+        <div class="meme" tabindex="0"><img src="img/C1.jpg" alt="Meme Jomok C1" loading="lazy" /><span>C1</span></div>
+        <div class="meme" tabindex="0"><img src="img/C2.jpg" alt="Meme Jomok C2" loading="lazy" /><span>C2</span></div>
+        <div class="meme" tabindex="0"><img src="img/C3.jpg" alt="Meme Jomok C3" loading="lazy" /><span>C3</span></div>
+        <div class="meme" tabindex="0"><img src="img/C4.jpg" alt="Meme Jomok C4" loading="lazy" /><span>C4</span></div>
+        <div class="meme" tabindex="0"><img src="img/C5.jpg" alt="Meme Jomok C5" loading="lazy" /><span>C5</span></div>
+      </div>
+    </section>
+
+    <!-- D Tier -->
+    <section class="tier" aria-label="D Tier">
+      <h2>D Tier</h2>
+      <div class="memes">
+        <div class="meme" tabindex="0"><img src="img/D1.jpg" alt="Meme Jomok D1" loading="lazy" /><span>D1</span></div>
+        <div class="meme" tabindex="0"><img src="img/D2.jpg" alt="Meme Jomok D2" loading="lazy" /><span>D2</span></div>
+        <div class="meme" tabindex="0"><img src="img/D3.jpg" alt="Meme Jomok D3" loading="lazy" /><span>D3</span></div>
+        <div class="meme" tabindex="0"><img src="img/D4.jpg" alt="Meme Jomok D4" loading="lazy" /><span>D4</span></div>
+        <div class="meme" tabindex="0"><img src="img/D5.jpg" alt="Meme Jomok D5" loading="lazy" /><span>D5</span></div>
+        <div class="meme" tabindex="0"><img src="img/D6.jpg" alt="Meme Jomok D6" loading="lazy" /><span>D6</span></div>
+        <div class="meme" tabindex="0"><img src="img/D7.jpg" alt="Meme Jomok D7" loading="lazy" /><span>D7</span></div>
+      </div>
+    </section>
+
+    <!-- E Tier -->
+    <section class="tier" aria-label="E Tier">
+      <h2>E Tier</h2>
+      <div class="memes">
+        <!-- 9 memes -->
+        <div class="meme" tabindex="0"><img src="img/E1.jpg" alt="Meme Jomok E1" loading="lazy" /><span>E1</span></div>
+        <div class="meme" tabindex="0"><img src="img/E2.jpg" alt="Meme Jomok E2" loading="lazy" /><span>E2</span></div>
+        <div class="meme" tabindex="0"><img src="img/E3.jpg" alt="Meme Jomok E3" loading="lazy" /><span>E3</span></div>
+        <div class="meme" tabindex="0"><img src="img/E4.jpg" alt="Meme Jomok E4" loading="lazy" /><span>E4</span></div>
+        <div class="meme" tabindex="0"><img src="img/E5.jpg" alt="Meme Jomok E5" loading="lazy" /><span>E5</span></div>
+        <div class="meme" tabindex="0"><img src="img/E6.jpg" alt="Meme Jomok E6" loading="lazy" /><span>E6</span></div>
+        <div class="meme" tabindex="0"><img src="img/E7.jpg" alt="Meme Jomok E7" loading="lazy" /><span>E7</span></div>
+        <div class="meme" tabindex="0"><img src="img/E8.jpg" alt="Meme Jomok E8" loading="lazy" /><span>E8</span></div>
+        <div class="meme" tabindex="0"><img src="img/E9.jpg" alt="Meme Jomok E9" loading="lazy" /><span>E9</span></div>
+      </div>
+    </section>
+
+    <!-- F Tier -->
+    <section class="tier" aria-label="F Tier">
+      <h2>F Tier</h2>
+      <div class="memes">
+        <!-- 10 memes -->
+        <div class="meme" tabindex="0"><img src="img/F1.jpg" alt="Meme Jomok F1" loading="lazy" /><span>F1</span></div>
+        <div class="meme" tabindex="0"><img src="img/F2.jpg" alt="Meme Jomok F2" loading="lazy" /><span>F2</span></div>
+        <div class="meme" tabindex="0"><img src="img/F3.jpg" alt="Meme Jomok F3" loading="lazy" /><span>F3</span></div>
+        <div class="meme" tabindex="0"><img src="img/F4.jpg" alt="Meme Jomok F4" loading="lazy" /><span>F4</span></div>
+        <div class="meme" tabindex="0"><img src="img/F5.jpg" alt="Meme Jomok F5" loading="lazy" /><span>F5</span></div>
+        <div class="meme" tabindex="0"><img src="img/F6.jpg" alt="Meme Jomok F6" loading="lazy" /><span>F6</span></div>
+        <div class="meme" tabindex="0"><img src="img/F7.jpg" alt="Meme Jomok F7" loading="lazy" /><span>F7</span></div>
+        <div class="meme" tabindex="0"><img src="img/F8.jpg" alt="Meme Jomok F8" loading="lazy" /><span>F8</span></div>
+        <div class="meme" tabindex="0"><img src="img/F9.jpg" alt="Meme Jomok F9" loading="lazy" /><span>F9</span></div>
+        <div class="meme" tabindex="0"><img src="img/F10.jpg" alt="Meme Jomok F10" loading="lazy" /><span>F10</span></div>
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>
