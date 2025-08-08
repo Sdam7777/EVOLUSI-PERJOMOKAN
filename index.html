@@ -21,22 +21,28 @@
     }
 
     header {
+      background: #111;
+      padding: 1rem;
+      border-radius: 16px;
+      display: inline-block;
+      user-select: none;
       margin-top: 20px;
       text-align: center;
-      user-select: none;
       max-width: 400px;
       width: 100%;
     }
 
     header img {
+      background: white;
+      padding: 0.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #66ccffaa;
       width: 100%;
       height: auto;
-      filter: brightness(0) invert(1); /* supaya gambar terlihat putih di hitam */
-      margin-bottom: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 0 20px #66ccffaa;
-      transition: transform 0.3s ease;
       cursor: default;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto 1rem auto;
     }
 
     header img:hover {
@@ -63,6 +69,7 @@
       -webkit-overflow-scrolling: touch;
       user-select: none;
       scroll-behavior: smooth;
+      margin-top: 2rem;
     }
 
     /* Hide scrollbar for Webkit browsers */
@@ -139,7 +146,7 @@
 <body>
 
   <header>
-    <!-- Ganti src dengan gambar anatomi lele kamu -->
+    <!-- Ganti src ini dengan path gambarmu yang benar -->
     <img src="img/anatomi-lele.png" alt="Anatomi Lele" />
     <h1>CLAS cals tahun</h1>
   </header>
@@ -178,5 +185,6 @@
       });
     });
   </script>
+
 </body>
 </html>
