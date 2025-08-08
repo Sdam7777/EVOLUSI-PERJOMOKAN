@@ -16,20 +16,19 @@
       flex-direction: column;
       min-height: 100vh;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       padding: 1.5rem 1rem;
+      text-align: center;
     }
 
     header {
       background: #111;
       padding: 1rem;
       border-radius: 16px;
-      display: inline-block;
-      user-select: none;
-      margin-top: 20px;
-      text-align: center;
       max-width: 400px;
       width: 100%;
+      margin-bottom: 2rem;
+      user-select: none;
     }
 
     header img {
@@ -39,10 +38,10 @@
       box-shadow: 0 0 20px #66ccffaa;
       width: 100%;
       height: auto;
+      display: block;
+      margin: 0 auto;
       cursor: default;
       transition: transform 0.3s ease;
-      display: block;
-      margin: 0 auto 1rem auto;
     }
 
     header img:hover {
@@ -52,137 +51,68 @@
     header h1 {
       font-weight: 700;
       font-size: 2.6rem;
-      margin: 0.3rem 0 0.8rem 0;
+      margin: 0.8rem 0 0 0;
       letter-spacing: 2px;
       color: #66ccff;
       user-select: text;
     }
 
-    .years-list {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      padding-bottom: 10px;
-      width: 100%;
-      max-width: 400px;
-      -webkit-overflow-scrolling: touch;
-      user-select: none;
-      scroll-behavior: smooth;
-      margin-top: 2rem;
-    }
-
-    /* Hide scrollbar for Webkit browsers */
-    .years-list::-webkit-scrollbar {
-      display: none;
-    }
-
-    .year-card {
-      flex: 0 0 80px;
-      background: #222;
-      border-radius: 12px;
-      padding: 1rem 0;
+    button.start-btn {
+      background-color: #66ccff;
+      color: #000;
       font-weight: 700;
-      font-size: 1.4rem;
-      color: #66ccff;
-      box-shadow: 0 0 10px #3399ff44;
+      font-size: 1.6rem;
+      padding: 1rem 3rem;
+      border: none;
+      border-radius: 30px;
       cursor: pointer;
+      box-shadow: 0 6px 15px #3399ff88;
       transition: background-color 0.3s ease, transform 0.25s ease;
-      text-align: center;
-      border: 2px solid transparent;
       user-select: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 80px;
     }
 
-    .year-card:hover,
-    .year-card:focus {
-      background-color: #3399ff22;
-      border-color: #66ccff;
-      transform: translateY(-5px);
+    button.start-btn:hover,
+    button.start-btn:focus {
+      background-color: #3399ff;
       outline: none;
+      transform: translateY(-4px);
     }
 
     footer {
       text-align: center;
       font-size: 0.9rem;
       color: #555;
-      padding-bottom: 1rem;
+      padding-top: 3rem;
       user-select: none;
       max-width: 400px;
       width: 100%;
     }
 
-    /* Fade out animation */
-    .fade-out {
-      animation: fadeOut 0.6s forwards;
-    }
-
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-    }
-
-    /* Responsive desktop */
-    @media (min-width: 600px) {
-      .years-list {
-        flex-wrap: wrap;
-        overflow-x: visible;
-        max-width: 600px;
-      }
-
-      .year-card {
-        flex: 1 1 120px;
-        font-size: 1.5rem;
-        min-width: unset;
-      }
-    }
   </style>
 </head>
 <body>
 
   <header>
-    <!-- Ganti src ini dengan path gambarmu yang benar -->
     <img src="img/anatomi-lele.png" alt="Anatomi Lele" />
-    <h1>NO JOMOK NO FREND</h1>
+    <h1>CLAS cals tahun</h1>
   </header>
 
-  <nav class="years-list" role="navigation" aria-label="Pilih tahun evolusi meme">
-    <div tabindex="0" class="year-card" data-target="2020.html">2020</div>
-    <div tabindex="0" class="year-card" data-target="2021.html">2021</div>
-    <div tabindex="0" class="year-card" data-target="2022.html">2022</div>
-    <div tabindex="0" class="year-card" data-target="2023.html">2023</div>
-    <div tabindex="0" class="year-card" data-target="2024.html">2024</div>
-  </nav>
+  <button class="start-btn" aria-label="Mulai evolusi meme jomok">MULAI</button>
 
   <footer>
     &copy; 2025 Evolusi Meme Jomok - All Rights Reserved
   </footer>
 
   <script>
-    const cards = document.querySelectorAll('.year-card');
+    const btnStart = document.querySelector('.start-btn');
 
-    function goToPage(target) {
-      document.body.classList.add('fade-out');
+    btnStart.addEventListener('click', () => {
+      // Animasi fade out
+      document.body.style.transition = "opacity 0.6s ease";
+      document.body.style.opacity = 0;
       setTimeout(() => {
-        window.location.href = target;
+        window.location.href = 'mulai.html';
       }, 600);
-    }
-
-    cards.forEach(card => {
-      card.addEventListener('click', () => {
-        goToPage(card.dataset.target);
-      });
-      card.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          goToPage(card.dataset.target);
-        }
-      });
     });
   </script>
 
