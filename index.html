@@ -17,21 +17,24 @@
       min-height: 100vh;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem;
+      padding: 1.5rem 1rem;
     }
 
     header {
       margin-top: 20px;
       text-align: center;
       user-select: none;
+      max-width: 400px;
+      width: 100%;
     }
 
     header img {
-      max-width: 180px;
       width: 100%;
       height: auto;
-      filter: brightness(0) invert(1); /* supaya gambar bisa putih di background hitam */
+      filter: brightness(0) invert(1); /* supaya gambar terlihat putih di hitam */
       margin-bottom: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #66ccffaa;
       transition: transform 0.3s ease;
       cursor: default;
     }
@@ -42,39 +45,57 @@
 
     header h1 {
       font-weight: 700;
-      font-size: 2.8rem;
-      margin: 0.2rem 0 0.6rem 0;
+      font-size: 2.6rem;
+      margin: 0.3rem 0 0.8rem 0;
       letter-spacing: 2px;
       color: #66ccff;
+      user-select: text;
     }
 
     .years-list {
       display: flex;
       gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 2rem;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      width: 100%;
+      max-width: 400px;
+      -webkit-overflow-scrolling: touch;
       user-select: none;
+      scroll-behavior: smooth;
+    }
+
+    /* Hide scrollbar for Webkit browsers */
+    .years-list::-webkit-scrollbar {
+      display: none;
     }
 
     .year-card {
+      flex: 0 0 80px;
       background: #222;
       border-radius: 12px;
-      padding: 1rem 1.6rem;
+      padding: 1rem 0;
       font-weight: 700;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       color: #66ccff;
       box-shadow: 0 0 10px #3399ff44;
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.25s ease;
-      user-select: none;
+      text-align: center;
       border: 2px solid transparent;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 80px;
     }
 
-    .year-card:hover {
+    .year-card:hover,
+    .year-card:focus {
       background-color: #3399ff22;
       border-color: #66ccff;
       transform: translateY(-5px);
+      outline: none;
     }
 
     footer {
@@ -83,6 +104,8 @@
       color: #555;
       padding-bottom: 1rem;
       user-select: none;
+      max-width: 400px;
+      width: 100%;
     }
 
     /* Fade out animation */
@@ -97,17 +120,18 @@
       }
     }
 
-    /* Responsive */
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 2rem;
+    /* Responsive desktop */
+    @media (min-width: 600px) {
+      .years-list {
+        flex-wrap: wrap;
+        overflow-x: visible;
+        max-width: 600px;
       }
+
       .year-card {
-        font-size: 1.2rem;
-        padding: 0.8rem 1.2rem;
-      }
-      header img {
-        max-width: 140px;
+        flex: 1 1 120px;
+        font-size: 1.5rem;
+        min-width: unset;
       }
     }
   </style>
@@ -115,18 +139,18 @@
 <body>
 
   <header>
-    <!-- Ganti src gambar ini dengan link/relative path gambar anatomi lele kamu -->
+    <!-- Ganti src dengan gambar anatomi lele kamu -->
     <img src="img/anatomi-lele.png" alt="Anatomi Lele" />
     <h1>CLAS cals tahun</h1>
   </header>
 
-  <div class="years-list">
-    <div class="year-card" data-target="2020.html">2020</div>
-    <div class="year-card" data-target="2021.html">2021</div>
-    <div class="year-card" data-target="2022.html">2022</div>
-    <div class="year-card" data-target="2023.html">2023</div>
-    <div class="year-card" data-target="2024.html">2024</div>
-  </div>
+  <nav class="years-list" role="navigation" aria-label="Pilih tahun evolusi meme">
+    <div tabindex="0" class="year-card" data-target="2020.html">2020</div>
+    <div tabindex="0" class="year-card" data-target="2021.html">2021</div>
+    <div tabindex="0" class="year-card" data-target="2022.html">2022</div>
+    <div tabindex="0" class="year-card" data-target="2023.html">2023</div>
+    <div tabindex="0" class="year-card" data-target="2024.html">2024</div>
+  </nav>
 
   <footer>
     &copy; 2025 Evolusi Meme Jomok - All Rights Reserved
@@ -135,15 +159,24 @@
   <script>
     const cards = document.querySelectorAll('.year-card');
 
+    function goToPage(target) {
+      document.body.classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href = target;
+      }, 600);
+    }
+
     cards.forEach(card => {
       card.addEventListener('click', () => {
-        document.body.classList.add('fade-out');
-        setTimeout(() => {
-          window.location.href = card.dataset.target;
-        }, 600);
+        goToPage(card.dataset.target);
+      });
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          goToPage(card.dataset.target);
+        }
       });
     });
   </script>
 </body>
-  </html>
-      
+</html>
